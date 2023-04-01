@@ -1,0 +1,247 @@
+* {
+    margin: 0;
+    padding: 0;
+
+    text-decoration: none;
+    list-style: none;
+    color: black;
+}
+
+@font-face {
+    font-family: "Oswald-normal";
+    src: url("./FONTS/Oswald/Oswald-VariableFont_wght.ttf");
+    font-family: "Oswald-bolder";
+    src: url("./FONTS/Oswald/static/Oswald-Bold.ttf");
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+:root {
+    --navbar-height: 100px;
+    --hamburger-element: 25px;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
+* {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+
+
+
+
+/*NAV*/
+nav {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+
+    height: var(--navbar-height);
+    width: calc(100% - 100px);
+    padding-left: 50px;
+    padding-right: 50px;
+
+    background-color: rgba(255, 255, 255, 0.2);
+    font-family: "Oswald", monospace, 'Courier New', Courier, sans-serif;
+    box-shadow: 4px 22px 45px -30px rgba(66, 68, 90, 1);
+    -webkit-box-shadow: 4px 22px 45px -30px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 4px 22px 45px -30px rgba(66, 68, 90, 1);
+}
+
+nav>*,
+nav>*>ul,
+nav>*>a {
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+
+/*--LEFT*/
+nav>.left>a {
+    gap: 4px;
+
+    font-family: "Oswald-bolder", "Oswald", monospace, 'Courier New', Courier, sans-serif;
+    font-variant: small-caps;
+    font-size: 13px;
+}
+
+nav>.left svg {
+    height: 25px;
+    width: auto;
+}
+
+/*--CENTER*/
+nav>.center>ul {
+    gap: 20px;
+}
+
+nav>.center>ul * {
+    color: #585858;
+}
+
+nav>.center>ul a:hover {
+    color: #202020;
+}
+
+nav>.center .hamburger {
+    display: none;
+
+    cursor: pointer;
+}
+
+nav>.center .bar1,
+nav>.center .bar2,
+nav>.center .bar3 {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: transform 0.4s, opacity 0.4s ;
+}
+
+.change .bar1 {
+    transform: translate(0, 9px) rotate(-45deg);
+}
+
+.change .bar2 {
+    opacity: 0;
+}
+
+.change .bar3 {
+    transform: translate(0, -9px) rotate(45deg);
+}
+
+/*--RIGHT*/
+nav>.right {
+    gap: 10px;
+}
+
+nav>.right>*>* {
+    padding: 7px 15px 7px 15px;
+    border-radius: 17px;
+    border: 1px solid;
+}
+
+nav>.right>.log-in * {
+    border-color: black;
+}
+
+nav>.right>.sign-in * {
+    background: rgb(45, 184, 45);
+    border-color: rgb(45, 184, 45);
+}
+
+nav>.right>.sign-in *:hover {
+    background: rgba(45, 184, 45, 0.777);
+    border-color: rgba(45, 184, 45, 0.777);
+}
+
+/*--NAV-DROPDOWN*/
+.nav-dropdown {
+    display: none;
+}
+
+.nav-dropdown.hamburger-active {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    top: calc(var(--navbar-height));
+
+    background-color: rgba(255, 255, 255, 0.1);
+    font-family: "Oswald", monospace, 'Courier New', Courier, sans-serif;
+    box-shadow: 4px 22px 45px -30px rgba(66, 68, 90, 1);
+    -webkit-box-shadow: 4px 22px 45px -30px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 4px 22px 45px -30px rgba(66, 68, 90, 1);
+
+    animation: fadeIn 0.4s;
+}
+
+.nav-dropdown.hamburger-active li {
+    display: block;
+
+    width: 100%;
+    height: 25px;
+
+    -webkit-box-shadow: inset 0px 0px 17px 1px rgba(66, 68, 90, 0.2);
+    -moz-box-shadow: inset 0px 0px 17px 1px rgba(66, 68, 90, 0.2);
+    box-shadow: inset 0px 0px 17px 1px rgba(66, 68, 90, 0.2);
+}
+
+.nav-dropdown.hamburger-active li:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.nav-dropdown.hamburger-active li a {
+    display: block;
+
+    width: 100%;
+    height: 25px;
+
+    text-align: center;
+}
+
+
+
+
+
+/*MAIN*/
+main {
+    height: 10000px;
+}
+
+/*--HERO*/
+main>.hero {
+    height: 75vh;
+
+    background-image: url(./IMAGES/MOUNTAINS-BACKGROUND.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+
+
+@media screen and (min-width: 1400px) {
+
+    /*MONITORY*/
+    main>.hero {
+        height: 100vh;
+    }
+}
+
+@media screen and (max-width: 700px) {
+
+    /*TELEFONY*/
+    nav>.center>ul>*,
+    nav>.right>*,
+    nav>.right {
+        display: none;
+    }
+
+    nav>.center svg,
+    nav>.center .hamburger {
+        display: block;
+    }
+}
+
+html {
+    animation: fadeIn 1s;
+}
